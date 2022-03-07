@@ -4,11 +4,11 @@
 # SHELL SCRIPT VERSION: 1.0
 # 64-BIT APP VERSION 1.0
 
-APP_URL1="https://classic.youneedabudget.com/CDNOrigin/download/ynab4/liveCaptive/Mac/YNAB4_LiveCaptive_4.3.855.dmg"
-APP_URL2="https://web.archive.org/web/20190613044706/https://classic.youneedabudget.com/CDNOrigin/download/ynab4/liveCaptive/Mac/YNAB4_LiveCaptive_4.3.855.dmg"
-APP_FILE="YNAB4_LiveCaptive_4.3.855.dmg"
-APP_SIZE="28MB"
-APP_MD5="e37d666b2cf1aa718c78534b1a1ffdc9"
+# APP_URL1="https://classic.youneedabudget.com/CDNOrigin/download/ynab4/liveCaptive/Mac/YNAB4_LiveCaptive_4.3.855.dmg"
+# APP_URL2="https://web.archive.org/web/20190613044706/https://classic.youneedabudget.com/CDNOrigin/download/ynab4/liveCaptive/Mac/YNAB4_LiveCaptive_4.3.855.dmg"
+#APP_FILE="YNAB4_LiveCaptive_4.3.855.dmg"
+#APP_SIZE="28MB"
+#APP_MD5="e37d666b2cf1aa718c78534b1a1ffdc9"
 
 AIR_URL1="http://download.macromedia.com/air/mac/download/32.0/AdobeAIR.dmg"
 AIR_URL2="https://web.archive.org/web/20190623201904/http://fpdownload.macromedia.com/air/mac/download/32.0/AdobeAIR.dmg"
@@ -55,9 +55,9 @@ echo "=========================================================="
 read -p "Press [ENTER] to continue or [CTRL+C] to cancel"
 
 # Download YNAB 4
-echo "> Downloading '$APP_FILE'"
-APP_DMG=$(download "$APP_FILE" "$APP_URL1" "$APP_MD5" "$TMPDIR") || \
-APP_DMG=$(download "$APP_FILE" "$APP_URL2" "$APP_MD5" "$TMPDIR") || die "Error downloading dependency '$APP_FILE'. Try again."
+# echo "> Downloading '$APP_FILE'"
+# APP_DMG=$(download "$APP_FILE" "$APP_URL1" "$APP_MD5" "$TMPDIR") || \
+# APP_DMG=$(download "$APP_FILE" "$APP_URL2" "$APP_MD5" "$TMPDIR") || die "Error downloading dependency '$APP_FILE'. Try again."
 
 # Download Adobe AIR runtime
 echo "> Downloading '$AIR_FILE'"
@@ -65,11 +65,11 @@ AIR_DMG=$(download "$AIR_FILE" "$AIR_URL1" "$AIR_MD5" "$TMPDIR") || \
 AIR_DMG=$(download "$AIR_FILE" "$AIR_URL2" "$AIR_MD5" "$TMPDIR") || die "Error downloading dependency '$AIR_FILE'. Try again."
 
 # Extract YNAB 4 package
-echo "> Extracting the 32-bit app from $APP_FILE"
-VOLUME=$(hdiutil attach $APP_DMG | grep Volumes | awk 'BEGIN {FS="\t"}; {print $3}')
+# echo "> Extracting the 32-bit app from $APP_FILE"
+# VOLUME=$(hdiutil attach $APP_DMG | grep Volumes | awk 'BEGIN {FS="\t"}; {print $3}')#
 cp -a "$VOLUME/YNAB 4.app" "$TMPDIR/"
-hdiutil detach "$VOLUME"
-APP_DIR="$TMPDIR/YNAB 4.app"
+# hdiutil detach "$VOLUME"
+# APP_DIR="$TMPDIR/YNAB 4.app"
 
 # Install 64-bit Adobe AIR framework
 echo "> Extracting the 64-bit Adobe AIR runtime from $AIR_FILE"
