@@ -67,7 +67,7 @@ AIR_DMG=$(download "$AIR_FILE" "$AIR_URL2" "$AIR_MD5" "$TMPDIR") || die "Error d
 # Extract YNAB 4 package
 # echo "> Extracting the 32-bit app from $APP_FILE"
 # VOLUME=$(hdiutil attach $APP_DMG | grep Volumes | awk 'BEGIN {FS="\t"}; {print $3}')#
-cp -a "$VOLUME/YNAB 4.app" "$TMPDIR/"
+# cp -a "$VOLUME/YNAB 4.app" "$TMPDIR/"
 # hdiutil detach "$VOLUME"
 # APP_DIR="$TMPDIR/YNAB 4.app"
 
