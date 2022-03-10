@@ -69,7 +69,7 @@ AIR_DMG=$(download "$AIR_FILE" "$AIR_URL2" "$AIR_MD5" "$TMPDIR") || die "Error d
 # VOLUME=$(hdiutil attach $APP_DMG | grep Volumes | awk 'BEGIN {FS="\t"}; {print $3}')#
 # cp -a "$VOLUME/YNAB 4.app" "$TMPDIR/"
 # hdiutil detach "$VOLUME"
-# APP_DIR="$TMPDIR/YNAB 4.app"
+APP_DIR="$TMPDIR/YNAB 4.app"
 
 # Install 64-bit Adobe AIR framework
 echo "> Extracting the 64-bit Adobe AIR runtime from $AIR_FILE"
